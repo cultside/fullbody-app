@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fullbody Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <h1>Fullbody Tracker</h1>
+        <div class="nav-tabs">
+            <button class="nav-btn active" id="tab-workout" onclick="switchTab('workout')">Тренировка</button>
+            <button class="nav-btn" id="tab-history" onclick="switchTab('history')">История</button>
+        </div>
+    </header>
+
+    <!-- Workout View -->
+    <main id="view-workout" class="view-section active">
+        <div class="day-selector">
+            <button class="day-btn active" id="btn-day1" onclick="switchDay(1)">День 1 (A)</button>
+            <button class="day-btn" id="btn-day2" onclick="switchDay(2)">День 2 (B)</button>
+        </div>
+
+        <div class="progress-card">
+            <div class="progress-header">
+                <span id="progress-text">Прогресс: 0%</span>
+                <button class="reset-btn" onclick="resetCurrentDay()">Сбросить день</button>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
+        </div>
+
+        <div class="exercise-list" id="exercise-list"></div>
+
+        <button class="finish-btn" onclick="finishWorkout()">Завершить тренировку</button>
+    </main>
+
+    <!-- History View -->
+    <main id="view-history" class="view-section">
+        <div class="export-actions">
+            <button class="export-btn" onclick="exportCSV()">Скачать CSV</button>
+            <button class="export-btn outline" onclick="exportJSON()">Скачать JSON</button>
+        </div>
+
+        <div class="history-list" id="history-list"></div>
+
+        <button class="clear-history-btn" onclick="clearAllHistory()">Очистить историю</button>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
